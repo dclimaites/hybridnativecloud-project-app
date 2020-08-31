@@ -13,6 +13,7 @@ phases:
       - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
       - REPOSITORY_URI="$ECR_ADDRESS"
       - IMAGE_URI="${REPOSITORY_URI}:${TAG}"
+      - printf 'Teste Diego "${terraform.workspace}"'
   build:
     commands:
       - docker build -t "${IMAGE_URI}" .
